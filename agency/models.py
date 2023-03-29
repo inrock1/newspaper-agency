@@ -20,7 +20,8 @@ class Redactor(AbstractUser):
 
     class Meta:
         verbose_name = "redactor"
-        verbose_name_plural = "publishers"
+        verbose_name_plural = "redactors"
+        # verbose_name_plural = "publishers"
 
     def __str__(self):
         return f"{self.username} ({self.first_name} {self.last_name})"

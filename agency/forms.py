@@ -19,5 +19,5 @@ class NewspaperForm(forms.ModelForm):
 class RedactorCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Redactor
-        # fields = UserCreationForm.Meta.fields + ("years_of_experience",)
-        fields = UserCreationForm.Meta.fields
+        fields = UserCreationForm.Meta.fields + ("years_of_experience",)
+        # fields = UserCreationForm.Meta.fields

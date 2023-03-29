@@ -94,6 +94,7 @@ class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
 class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
     model = Redactor
     form_class = RedactorCreationForm
+    success_url = reverse_lazy("agency:redactor-list")
 
 
 class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
