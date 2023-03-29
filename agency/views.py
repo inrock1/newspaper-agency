@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import RedactorCreationForm, RedactorLicenseUpdateForm, NewspaperForm
+from .forms import RedactorCreationForm, NewspaperForm
 
 from .models import Redactor, Newspaper, Topic
 
@@ -14,7 +14,7 @@ def index(request):
     """View function for the home page of the site."""
 
     num_redactors = Redactor.objects.count()
-    num_cars = Newspaper.objects.count()
+    num_newspapers = Newspaper.objects.count()
     num_topics = Topic.objects.count()
 
     num_visits = request.session.get("num_visits", 0)
@@ -22,7 +22,7 @@ def index(request):
 
     context = {
         "num_redactors": num_redactors,
-        "num_cars": num_cars,
+        "num_newspapers": num_newspapers,
         "num_topics": num_topics,
         "num_visits": num_visits + 1,
     }
@@ -67,18 +67,18 @@ class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
 class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
     model = Newspaper
     form_class = NewspaperForm
-    success_url = reverse_lazy("agency:car-list")
+    success_url = reverse_lazy("agency:newspaper-list")
 
 
 class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Newspaper
     form_class = NewspaperForm
-    success_url = reverse_lazy("agency:car-list")
+    success_url = reverse_lazy("agency:newspaper-list")
 
 
 class NewspaperDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Newspaper
-    success_url = reverse_lazy("agency:car-list")
+    success_url = reverse_lazy("agency:newspaper-list")
 
 
 class RedactorListView(LoginRequiredMixin, generic.ListView):
@@ -88,7 +88,7 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
 
 class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
     model = Redactor
-    queryset = Redactor.objects.all().prefetch_related("cars__topic")
+    queryset = Redactor.objects.all().prefetch_related("newspapers__topic")
 
 
 class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
@@ -101,21 +101,20 @@ class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
     fields = "__all__"
     success_url = reverse_lazy("agency:redactor-list")
     template_name = "agency/redactor_confirm_delete.html"
-    # це template_name можно не вказувати
 
 
 class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Redactor
-    form_class = RedactorLicenseUpdateForm
+    # form_class = RedactorLicenseUpdateForm
     success_url = reverse_lazy("agency:redactor-list")
 
 
 @login_required
 def redactor_assign(request, pk):
-    car = Newspaper.objects.get(pk=pk)
+    newspaper = Newspaper.objects.get(pk=pk)
     redactor = Redactor.objects.get(pk=request.user.pk)
-    if redactor in car.redactors.all():
-        redactor.cars.remove(pk)
+    if redactor in newspaper.redactors.all():
+        redactor.newspapers.remove(pk)
     else:
-        redactor.cars.add(pk)
-    return HttpResponseRedirect(reverse_lazy("agency:car-detail", args=[pk]))
+        redactor.newspapers.add(pk)
+    return HttpResponseRedirect(reverse_lazy("agency:newspaper-detail", args=[pk]))

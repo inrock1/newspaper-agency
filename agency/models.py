@@ -11,12 +11,12 @@ class Topic(models.Model):
     #     ordering = ["name"]
 
     def __str__(self):
-        return f"{self.name} {self.country}"
+        return f"{self.name}"
 
 
 class Redactor(AbstractUser):
     # username = models.CharField(max_length=255, unique=True)
-    years_of_experience = models.IntegerField(max_length=63)
+    years_of_experience = models.IntegerField(blank=True, null=True)
 
     class Meta:
         verbose_name = "redactor"
