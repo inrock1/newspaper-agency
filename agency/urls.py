@@ -1,39 +1,26 @@
 from django.urls import path
 
-from agency.views import index
+from agency.views import index, TopicListView, TopicCreateView, TopicUpdateView, TopicDeleteView, NewspaperListView, \
+    NewspaperDetailView, NewspaperCreateView, NewspaperUpdateView, NewspaperDeleteView
 
 urlpatterns = [
     path("", index, name="index"),
+    path("topics/", TopicListView.as_view(), name="topic-list",),
+    path("topics/create/", TopicCreateView.as_view(), name="topic-create",),
+    path("topics/<int:pk>/update/", TopicUpdateView.as_view(), name="topic-update",),
+    path("topics/<int:pk>/delete/", TopicDeleteView.as_view(), name="topic-delete",),
+    path("newspapers/", NewspaperListView.as_view(), name="newspaper-list"),
+    path("newspapers/<int:pk>/", NewspaperDetailView.as_view(), name="newspaper-detail"),
+    path("newspapers/create/", NewspaperCreateView.as_view(), name="newspaper-create"),
+    path("newspapers/<int:pk>/update/", NewspaperUpdateView.as_view(), name="newspaper-update"),
+    path("newspapers/<int:pk>/delete/", NewspaperDeleteView.as_view(), name="newspaper-delete"),
 ]
 
 app_name = "newspaper"
 
+'''
 
-path(
-        "manufacturers/",
-        ManufacturerListView.as_view(),
-        name="manufacturer-list",
-    ),
-    path(
-        "manufacturers/create/",
-        ManufacturerCreateView.as_view(),
-        name="manufacturer-create",
-    ),
-    path(
-        "manufacturers/<int:pk>/update/",
-        ManufacturerUpdateView.as_view(),
-        name="manufacturer-update",
-    ),
-    path(
-        "manufacturers/<int:pk>/delete/",
-        ManufacturerDeleteView.as_view(),
-        name="manufacturer-delete",
-    ),
-    path("cars/", CarListView.as_view(), name="car-list"),
-    path("cars/<int:pk>/", CarDetailView.as_view(), name="car-detail"),
-    path("cars/create/", CarCreateView.as_view(), name="car-create"),
-    path("cars/<int:pk>/update/", CarUpdateView.as_view(), name="car-update"),
-    path("cars/<int:pk>/delete/", CarDeleteView.as_view(), name="car-delete"),
+
     path("drivers/", DriverListView.as_view(), name="driver-list"),
     path(
         "drivers/<int:pk>/", DriverDetailView.as_view(), name="driver-detail"
@@ -49,7 +36,8 @@ path(
         DriverUpdateView.as_view(),
         name="driver-update"),
     path(
-        "cars/<int:pk>/assign/",
+        "newspapers/<int:pk>/assign/",
         driver_assign,
         name="driver-assign"
     ),
+'''
