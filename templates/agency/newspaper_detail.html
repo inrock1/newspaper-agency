@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ newspaper.model }}
+
+    {% if not user in newspaper.redactors.all %}
+      <a href="{% url "agency:redactor-assign" pk=newspaper.pk %}" class="btn btn-primary">
+        Assign me to this newspaper
+      </a>
+    {% else %}
+      <a href="{% url "agency:redactor-assign" pk=newspaper.pk %}" class="btn btn-danger">
+        Delete me from this newspaper
+      </a>
+    {% endif %}
+  </h1>
+  <p>Topic: ({{ newspaper.topic.title }})</p>
+  <h1>Redactors</h1>
+  <hr>
+  <ul>
+    {% for redactor in newspaper.redactors.all %}
+      <li>{{ redactor.username }} ({{ redactor.first_name }} {{ redactor.last_name }})</li>
+    {% endfor %}
+  </ul>
+      <a href="{% url 'agency:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger ">
+      Delete
+    </a>
+    <a href="{% url 'agency:newspaper-update' pk=newspaper.id %}" class="btn btn-secondary ">
+      Update
+    </a>
+{% endblock %}
