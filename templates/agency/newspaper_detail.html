@@ -4,15 +4,15 @@
   <h1>
     {{ newspaper.model }}
 
-    {% if not user in newspaper.redactors.all %}
-      <a href="{% url "agency:redactor-assign" pk=newspaper.pk %}" class="btn btn-primary">
-        Assign me to this newspaper
-      </a>
-    {% else %}
-      <a href="{% url "agency:redactor-assign" pk=newspaper.pk %}" class="btn btn-danger">
-        Delete me from this newspaper
-      </a>
-    {% endif %}
+{#    {% if not user in newspaper.redactors.all %}#}
+{#      <a href="{% url "agency:redactor-assign" pk=newspaper.pk %}" class="btn btn-primary">#}
+{#        Assign me to this newspaper#}
+{#      </a>#}
+{#    {% else %}#}
+{#      <a href="{% url "agency:redactor-assign" pk=newspaper.pk %}" class="btn btn-danger">#}
+{#        Delete me from this newspaper#}
+{#      </a>#}
+{#    {% endif %}#}
   </h1>
   <p>Topic: ({{ newspaper.topic.title }})</p>
   <h1>Redactors</h1>

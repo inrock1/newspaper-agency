@@ -1,14 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.urls import reverse
 
 
 class Topic(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
-    # TODO: ordering by date_published
-    # class Meta:
-    #     ordering = ["name"]
 
     def __str__(self):
         return f"{self.name}"
@@ -27,7 +23,7 @@ class Redactor(AbstractUser):
         return f"{self.username} ({self.first_name} {self.last_name})"
 
     # def get_absolute_url(self):
-    #     return reverse("taxi:driver-detail", kwargs={"pk": self.pk})
+    #     return reverse("agency:redactor-detail", kwargs={"pk": self.pk})
 
 
 class Newspaper(models.Model):
