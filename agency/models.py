@@ -5,7 +5,6 @@ from django.contrib.auth.models import AbstractUser
 class Topic(models.Model):
     name = models.CharField(max_length=255, unique=True)
 
-
     def __str__(self):
         return f"{self.name}"
 

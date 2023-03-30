@@ -8,14 +8,27 @@
     </a>
   </h1>
   {% if newspaper_list %}
-    <ul>
-      {% for newspaper in newspaper_list %}
-        <li>
-          <a href="{% url "agency:newspaper-detail" pk=newspaper.id %} ">№{{ newspaper.id }} - </a>
-          {{ newspaper.title }} ({{ newspaper.topic.name }}) - {{newspaper.published_date}}
-        </li>
-      {% endfor %}
-    </ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Topic</th>
+        <th>Title</th>
+{#        <th>Redactor</th>#}
+        <th>Published_date</th>
+      </tr>
+        {% for newspaper in newspaper_list %}
+          <tr>
+            <td>{{ newspaper.id }}</td>
+            <td>{{ newspaper.topic.name }}</td>
+            <td><a href="{% url "agency:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.title }} </a></td>
+{#            <td>{{ newspaper.publishers }}</td>#}
+            <td>{{ newspaper.published_date }}</td>
+          </tr>
+        {% endfor %}
+
+    </table>
+
+
   {% else %}
     <p>There are no newspapers in agency</p>
   {% endif %}

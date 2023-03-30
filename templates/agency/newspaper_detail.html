@@ -14,13 +14,17 @@
 {#      </a>#}
 {#    {% endif %}#}
   </h1>
-  <p>Topic: ({{ newspaper.topic.title }})</p>
-  <h1>Redactors</h1>
+  <h4>Topic: {{ newspaper.topic.name }}</h4>
+  <h5>Title: {{ newspaper.title }}</h5>
+  <h5>Redactors</h5>
   <hr>
   <ul>
-    {% for redactor in newspaper.redactors.all %}
+    {% for redactor in newspaper.publishers.all %}
       <li>{{ redactor.username }} ({{ redactor.first_name }} {{ redactor.last_name }})</li>
     {% endfor %}
+  </ul>
+  <ul>
+    <p>Content: ({{ newspaper.content }})</p>
   </ul>
       <a href="{% url 'agency:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger ">
       Delete

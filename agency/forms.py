@@ -16,8 +16,20 @@ class NewspaperForm(forms.ModelForm):
         fields = "__all__"
 
 
+class NewspaperSearchForm(forms.Form):
+    model = forms.CharField(max_length=255, required=False)
+
+
 class RedactorCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Redactor
         fields = UserCreationForm.Meta.fields + ("years_of_experience",)
         # fields = UserCreationForm.Meta.fields
+
+
+class RedactorSearchForm(forms.Form):
+    username = forms.CharField(max_length=255, required=False)
+
+
+class TopicSearchForm(forms.Form):
+    name = forms.CharField(max_length=255, required=False)

@@ -8,3 +8,17 @@ body {
     margin: 0 2px 0 2px;
 }
 
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.img2 {
+  width: 150%;
+}
