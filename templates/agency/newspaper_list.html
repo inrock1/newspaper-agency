@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load i18n static %}
+{% block title %} Tables {% endblock title %}
 
 {% block content %}
   <h1>
@@ -7,26 +9,48 @@
       Create
     </a>
   </h1>
-  {% if newspaper_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Topic</th>
-        <th>Title</th>
-{#        <th>Redactor</th>#}
-        <th>Published_date</th>
-      </tr>
-        {% for newspaper in newspaper_list %}
-          <tr>
-            <td>{{ newspaper.id }}</td>
-            <td>{{ newspaper.topic.name }}</td>
-            <td><a href="{% url "agency:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.title }} </a></td>
-{#            <td>{{ newspaper.publishers }}</td>#}
-            <td>{{ newspaper.published_date }}</td>
-          </tr>
-        {% endfor %}
 
-    </table>
+  {% if newspaper_list %}
+
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Authors table</h6>
+              </div>
+            </div>
+
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <tr>
+                    <th>ID</th>
+                    <th>Topic</th>
+                    <th>Title</th>
+                    <th>Published_date</th>
+                    <th>Update / Delete</th>
+                  </tr>
+                    {% for newspaper in newspaper_list %}
+                      <tr>
+                        <td>{{ newspaper.id }}</td>
+                        <td>{{ newspaper.topic.name }}</td>
+                        <td><a href="{% url "agency:newspaper-detail" pk=newspaper.id %} ">{{ newspaper.title }} </a></td>
+            {#            <td>{{ newspaper.publishers }}</td>#}
+                        <td>{{ newspaper.published_date }}</td>
+                        <td><a class="btn btn-outline-secondary" href="{% url "agency:newspaper-detail" pk=newspaper.id %} ">Detail</a></td>
+                      </tr>
+                    {% endfor %}
+
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
   {% else %}

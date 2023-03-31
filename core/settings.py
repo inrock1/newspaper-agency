@@ -34,6 +34,7 @@ INTERNAL_IPS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_material.apps.AdminMaterialDashboardConfig',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "agency",
     'crispy_forms',
-    "crispy_bootstrap4"
+    "crispy_bootstrap5"
 ]
 
 MIDDLEWARE = [
@@ -138,5 +139,7 @@ AUTH_USER_MODEL = "agency.Redactor"
 
 LOGIN_REDIRECT_URL = "/"
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
