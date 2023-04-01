@@ -122,9 +122,6 @@ def redactor_assign(request, pk):
     return HttpResponseRedirect(reverse_lazy("agency:newspaper-detail", args=[pk]))
 
 
-# class MyPageView(TemplateView):
-#     template_name = "agency/my_page.html"
+class MyPageView(TemplateView):
+    template_name = "agency/about.html"
 
-
-# def about(request):
-#     return render(request, "agency/about.html")

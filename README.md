@@ -1,6 +1,9 @@
 # Newspaper agency
 
-Django project for managing topics, newspapers and redactors.
+This is a Django pet project for managing an editorial team to store articles and track who wrote what.
+The database is based on three interconnected models: Newspapers, Topics, and Redactors.
+Each topic can have several newspapers, each newspaper can have several redactors, and each redactor can work on several newspapers.
+
 
 ## Features
 
@@ -8,10 +11,9 @@ Django project for managing topics, newspapers and redactors.
 * Managing newspaper redactors and topics directly from website interface (Create / Update / Delete all data) 
 * Powerful admin panel for advanced managing
 
-
 ## Check it out
 
-[Newspaper agency project to ...](https://)
+[Newspaper agency project to link...](https://)
 
 ```shell
 # authentication to view capabilities

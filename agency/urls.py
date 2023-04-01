@@ -1,8 +1,9 @@
 from django.urls import path
+from django.views.generic import TemplateView
 
 from agency.views import index, TopicListView, TopicCreateView, TopicUpdateView, TopicDeleteView, NewspaperListView, \
     NewspaperDetailView, NewspaperCreateView, NewspaperUpdateView, NewspaperDeleteView, RedactorListView, \
-    RedactorDetailView, RedactorCreateView, RedactorDeleteView, RedactorUpdateView
+    RedactorDetailView, RedactorCreateView, RedactorDeleteView, RedactorUpdateView, MyPageView
 
 urlpatterns = [
     path("", index, name="index"),
@@ -20,8 +21,7 @@ urlpatterns = [
     path("redactors/create/", RedactorCreateView.as_view(), name="redactor-create"),
     path("redactors/<int:pk>/delete/", RedactorDeleteView.as_view(), name="redactor-delete"),
     path("redactors/<int:pk>/update/", RedactorUpdateView.as_view(), name="redactor-update"),
-    # path("", about, name="about"),
-    # path("", MyPageView.as_view(), name='my-page'),
+    path("agency/about/", MyPageView.as_view(), name='about'),
 ]
 
 app_name = "newspaper"
