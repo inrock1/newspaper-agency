@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %} Tables {% endblock title %}
+
+{% block content %}
+
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">About</h6>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <div class="ppp">
+                  Dear visitors,
+                  <br><br>
+                  I am excited to introduce you to this invented web service, which is my pet project aimed at enhancing my backend web development skills using Python and Django.<br>
+                  The database is based on three interconnected models: Newspapers, Topics, and Redactors.
+                  Each topic can have several newspapers, each newspaper can have several redactors, and each redactor can work on several newspapers.
+                  On this website, you can create, modify, and delete any of these data using web-interface.
+                  <br><br>
+                  In addition, there are implemented user authentication with secure creation of new users.
+                  Passwords in the database are stored in a hashed form, ensuring the safety of our users' personal information.
+                  <br><br>
+                  Thank you for your attention.
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock content %}
+ 

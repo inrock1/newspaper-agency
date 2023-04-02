@@ -3,25 +3,31 @@
 {% block content %}
   <h1>
     {{ newspaper.model }}
-
-    {% if not user in newspaper.redactors.all %}
-      <a href="{% url "agency:redactor-assign" pk=newspaper.pk %}" class="btn btn-primary">
-        Assign me to this newspaper
-      </a>
-    {% else %}
-      <a href="{% url "agency:redactor-assign" pk=newspaper.pk %}" class="btn btn-danger">
-        Delete me from this newspaper
-      </a>
-    {% endif %}
   </h1>
-  <p>Topic: ({{ newspaper.topic.title }})</p>
-  <h1>Redactors</h1>
-  <hr>
-  <ul>
-    {% for redactor in newspaper.redactors.all %}
-      <li>{{ redactor.username }} ({{ redactor.first_name }} {{ redactor.last_name }})</li>
-    {% endfor %}
-  </ul>
+
+  <div class="container-fluid py-4">
+    <div class="row ppp">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-body px-0 pb-2">
+            <div class="ppp">
+
+              <h4>Topic: {{ newspaper.topic.name }}</h4>
+              <h5>Title: {{ newspaper.title }}</h5>
+              <ul>
+              {% for redactor in newspaper.publishers.all %}
+                <li>Redactors: {{ redactor.username }} ({{ redactor.first_name }} {{ redactor.last_name }})</li>
+              {% endfor %}
+              </ul>
+                <p>{{ newspaper.content }}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
       <a href="{% url 'agency:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger ">
       Delete
     </a>

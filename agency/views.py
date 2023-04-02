@@ -4,8 +4,9 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import RedactorCreationForm, NewspaperForm
+from django.views.generic import TemplateView
 
+from .forms import RedactorCreationForm, NewspaperForm
 from .models import Redactor, Newspaper, Topic
 
 
@@ -106,7 +107,7 @@ class RedactorDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Redactor
-    # form_class = RedactorLicenseUpdateForm
+    fields = ("username", "years_of_experience", "first_name", "last_name", "email")
     success_url = reverse_lazy("agency:redactor-list")
 
 
@@ -119,3 +120,8 @@ def redactor_assign(request, pk):
     else:
         redactor.newspapers.add(pk)
     return HttpResponseRedirect(reverse_lazy("agency:newspaper-detail", args=[pk]))
+
+
+class MyPageView(TemplateView):
+    template_name = "agency/about.html"
+

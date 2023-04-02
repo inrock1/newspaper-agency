@@ -1,48 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Topic List
-    <a href="{% url 'agency:topic-create' %}" class="btn btn-primary link-to-page">
-      Create
-    </a>
-  </h1>
+  <div class="ppp">
+    <h1>
+      Topic List
+      <a href="{% url 'agency:topic-create' %}" class="btn btn-primary link-to-page">
+        Create
+      </a>
+    </h1>
 
-  {% if topic_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-
-        <th>Update</th>
-        <th>Delete</th>
-      </tr>
-
-      {% for topic in topic_list %}
+    {% if topic_list %}
+      <table class="table">
         <tr>
-          <td>
-              {{ topic.id }}
-          </td>
-          <td>
-              {{ topic.name }}
-          </td>
+          <th>ID</th>
+          <th>Name</th>
 
-          <td>
-              <a href="{% url 'agency:topic-update' pk=topic.id %}">
-                Update
-              </a>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+
+        {% for topic in topic_list %}
+          <tr>
+            <td>
+                {{ topic.id }}
             </td>
             <td>
-              <a style="color: red"
-                href="{% url 'agency:topic-delete' pk=topic.id %}">
-                Delete
-              </a>
+                {{ topic.name }}
             </td>
-        </tr>
-      {% endfor %}
-    </table>
 
-  {% else %}
-      <p>There are no topics in the service.</p>
-  {% endif %}
+            <td>
+                <a href="{% url 'agency:topic-update' pk=topic.id %}">
+                  Update
+                </a>
+              </td>
+              <td>
+                <a style="color: red"
+                  href="{% url 'agency:topic-delete' pk=topic.id %}">
+                  Delete
+                </a>
+              </td>
+          </tr>
+        {% endfor %}
+      </table>
+
+    {% else %}
+        <p>There are no topics in the service.</p>
+    {% endif %}
+  </div>
 {% endblock %}
