@@ -14,7 +14,7 @@ Each topic can have several newspapers, each newspaper can have several redactor
 ## Check it out
 
 [https://newspapers-agency.onrender.com](https://newspapers-agency.onrender.com)
-
+* now the database is empty - but soon it will be filled with new newspapers.
 ```shell
 # authentication to view capabilities
 username: user
