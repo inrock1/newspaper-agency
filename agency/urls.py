@@ -1,5 +1,4 @@
 from django.urls import path
-from django.views.generic import TemplateView
 
 from agency.views import index, TopicListView, TopicCreateView, TopicUpdateView, TopicDeleteView, NewspaperListView, \
     NewspaperDetailView, NewspaperCreateView, NewspaperUpdateView, NewspaperDeleteView, RedactorListView, \
