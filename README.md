@@ -41,11 +41,11 @@ python manage.py runserver # starts Django Server
 
 
 ## Demo
-![static/img_for_readme/img_2.png](img_2.png)
+![img_2.png](./static/img_for_readme/img_2.png)
 
-![static/img_for_readme/img.png](img.png)
+![img.png](./static/img_for_readme/img.png)
 
-![static/img_for_readme/img_1.png](img_1.png)
+![img_1.png](./static/img_for_readme/img_1.png)
 
 
 Thanks to [appseed.us](href="https://appseed.us) for frontend template.
