@@ -14,7 +14,7 @@ Each topic can have several newspapers, each newspaper can have several redactor
 ## Check it out
 
 [https://newspapers-agency.onrender.com](https://newspapers-agency.onrender.com)
-* now the database is empty - but soon it will be filled with new newspapers.
+ 
 ```shell
 # authentication to view capabilities
 username: user
@@ -39,17 +39,13 @@ python manage.py createsuperuser
 python manage.py runserver # starts Django Server
 ```
 
-Here you should say what actually happens when you execute the code above.
-
-
-
 
 ## Demo
-![img_2.png](img_2.png)
+![static/img_for_readme/img_2.png](img_2.png)
 
-![img.png](img.png)
+![static/img_for_readme/img.png](img.png)
 
-![img_1.png](img_1.png)
+![static/img_for_readme/img_1.png](img_1.png)
 
 
 Thanks to [appseed.us](href="https://appseed.us) for frontend template.

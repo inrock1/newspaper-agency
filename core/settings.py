@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 import dj_database_url
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-l+l1f+*4f+@vvw3!%qk)e0n%dpj=l(+2u=o9ma!r9ko9b(w%46")
+load_dotenv()
 SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
@@ -33,10 +37,6 @@ ALLOWED_HOSTS = ["127.0.0.1", "newspapers-agency.onrender.com"]
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-
-print("debug = ", DEBUG)
-print(os.environ.get("DJANGO_DEBUG", "os environ DJANGO_DEBUG = False"))
-
 
 if DEBUG:
     CSRF_COOKIE_SECURE = False

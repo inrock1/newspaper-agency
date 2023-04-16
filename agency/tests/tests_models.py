@@ -6,28 +6,26 @@ from agency.models import Topic, Newspaper
 
 class ModelsTests(TestCase):
 
-    # def setUp(self) -> None:
-    #     self.redactor = get_user_model().objects.create_user(
-    #         username="user8",
-    #         first_name="Vasya",
-    #         last_name="Pupkin",
-    #         email="ad@min.ua",
-    #         password="345ert345",
-    #         years_of_experience=5,
-    #     )
-    #     self.topic = Topic.objects.create(
-    #         name="Computing"
-    #     )
-    #     self.newspaper = Newspaper.objects.create(
-    #         title="Introduction to version control with Git",
-    #         content="What is a commit message? ...",
-    #         topic=self.topic,
-    #     )
-
-    def test_topic_str(self) -> None:
-        obj = Topic.objects.create(
+    def setUp(self) -> None:
+        self.redactor = get_user_model().objects.create_user(
+            username="user8",
+            first_name="Vasya",
+            last_name="Pupkin",
+            email="ad@min.ua",
+            password="345ert345",
+            years_of_experience=5,
+        )
+        self.topic = Topic.objects.create(
             name="Computing"
         )
+        self.newspaper = Newspaper.objects.create(
+            title="Introduction to version control with Git",
+            content="What is a commit message? ...",
+            topic=self.topic,
+        )
+
+    def test_topic_str(self) -> None:
+        obj = self.topic
         self.assertEqual(str(obj), "Computing")
 
     # def test_newspaper_str(self) -> None:
