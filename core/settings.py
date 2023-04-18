@@ -30,7 +30,8 @@ SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
+# DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
+DEBUG = "False"
 
 ALLOWED_HOSTS = ["127.0.0.1", "newspapers-agency.onrender.com"]
 
@@ -38,12 +39,12 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-if DEBUG:
-    CSRF_COOKIE_SECURE = False
-    SESSION_COOKIE_SECURE = False
-else:
-    CSRF_COOKIE_SECURE = True
-    SESSION_COOKIE_SECURE = True
+# if DEBUG:
+#     CSRF_COOKIE_SECURE = False
+#     SESSION_COOKIE_SECURE = False
+# else:
+#     CSRF_COOKIE_SECURE = True
+#     SESSION_COOKIE_SECURE = True
 
 
 # Application definition
