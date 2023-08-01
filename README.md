@@ -1,8 +1,6 @@
 # Newspaper agency
 
-This is a Django pet project for managing an editorial team to store articles and track who wrote what.
-The database is based on three interconnected models: Newspapers, Topics, and Redactors.
-Each topic can have several newspapers, each newspaper can have several redactors, and each redactor can work on several newspapers.
+This is scrapper in python  for 
 
 
 ## Features
@@ -13,8 +11,8 @@ Each topic can have several newspapers, each newspaper can have several redactor
 
 ## Check it out
 
-[https://newspapers-agency.onrender.com](https://newspapers-agency.onrender.com)
- 
+[https://newspapers-agency.onrender.com](https://newspapers-agency.onrender.com)   
+ '* The initial website load time may take 2 minutes.
 ```shell
 # authentication to view capabilities
 username: user
