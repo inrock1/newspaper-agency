@@ -32,6 +32,11 @@ SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 
+if DEBUG:
+    print("Debug mode on")
+else:
+    print("Debug mode off")
+
 
 ALLOWED_HOSTS = ["127.0.0.1", "newspapers-agency.onrender.com"]
 
