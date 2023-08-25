@@ -33,7 +33,11 @@ SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
 # DEBUG = os.environ.get("DJANGO_DEBUG", "") != "False"
 DEBUG = "False"
 
-ALLOWED_HOSTS = ["127.0.0.1", "newspapers-agency.onrender.com"]
+ALLOWED_HOSTS = [
+    "127.0.0.1", 
+    "newspapers-agency.onrender.com", 
+    "newspaper-agency-8oxp.onrender.com"
+]
 
 INTERNAL_IPS = [
     "127.0.0.1",
