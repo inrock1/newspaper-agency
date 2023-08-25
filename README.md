@@ -10,7 +10,6 @@ This is scrapper in python  for
 * Powerful admin panel for advanced managing
 
 ## Check it out
-
 [https://newspapers-agency.onrender.com](https://newspapers-agency.onrender.com)   
  '* The initial website load time may take 2 minutes.
 ```shell
