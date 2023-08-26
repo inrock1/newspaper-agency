@@ -43,12 +43,12 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-# if DEBUG:
-#     CSRF_COOKIE_SECURE = False
-#     SESSION_COOKIE_SECURE = False
-# else:
-#     CSRF_COOKIE_SECURE = True
-#     SESSION_COOKIE_SECURE = True
+if DEBUG:
+    CSRF_COOKIE_SECURE = False
+    SESSION_COOKIE_SECURE = False
+else:
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
 
 
 # Application definition
