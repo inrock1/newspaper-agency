@@ -38,7 +38,11 @@ else:
     print("Debug mode off")
 
 
-ALLOWED_HOSTS = ["127.0.0.1", "newspapers-agency.onrender.com"]
+ALLOWED_HOSTS = [
+    "127.0.0.1", 
+    "newspapers-agency.onrender.com", 
+    "newspaper-agency-8oxp.onrender.com"
+]
 
 INTERNAL_IPS = [
     "127.0.0.1",
